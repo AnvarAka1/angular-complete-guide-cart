@@ -1,10 +1,13 @@
-import {Component} from '@angular/core';
+import { Component, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: "app-header",
-  templateUrl: "./header.component.html"
+	selector: "app-header",
+	templateUrl: "./header.component.html"
 })
+export class HeaderComponent {
+	@Output() recepesPageOpened = new EventEmitter<boolean>();
 
-export class HeaderComponent{
-
+	recipesPageOpened(isRecipesPage) {
+		this.recepesPageOpened.emit(isRecipesPage);
+	}
 }
