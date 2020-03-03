@@ -22,7 +22,9 @@ import { DropdownDirective } from "./shared/dropdown.directive";
 import { ShoppingListService } from "./shopping-list/shopping-list.service";
 import { RecipeService } from "./recipes/recipe.service";
 import { AuthInterceptor } from "./auth/auth-interceptor.service";
-import { AuthGuard } from "./auth/auth.guard";
+import { AlertComponent } from "./shared/alert/alert.component";
+import { PlaceHolderDirective } from "./shared/placeholder/placeholder.directive";
+// import { AuthGuard } from "./auth/auth.guard";
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -37,7 +39,9 @@ import { AuthGuard } from "./auth/auth.guard";
 		RecipeStartComponent,
 		RecipeEditComponent,
 		AuthComponent,
-		LoadingSpinnerComponent
+		LoadingSpinnerComponent,
+		AlertComponent,
+		PlaceHolderDirective
 	],
 	imports: [ BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule ],
 	providers: [
@@ -45,6 +49,7 @@ import { AuthGuard } from "./auth/auth.guard";
 		RecipeService,
 		{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
 	],
-	bootstrap: [ AppComponent ]
+	bootstrap: [ AppComponent ],
+	entryComponents: [ AlertComponent ]
 })
 export class AppModule {}
